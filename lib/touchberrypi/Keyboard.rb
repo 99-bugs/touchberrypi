@@ -45,7 +45,7 @@ module Touchberrypi
 					key = KEY_MAP[i]
 					@on_key_up_block.call key if status[i] == "released" unless @on_key_up_block.nil?
 					@on_key_down_block.call key if status[i] == "pressed" unless @on_key_down_block.nil?
-					@on_key_change_block.call key unless @on_key_change_block.nil?
+					@on_key_change_block.call key, status[i] unless @on_key_change_block.nil?
 				end
 			end
 			@previous_status = status

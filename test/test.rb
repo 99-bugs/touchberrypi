@@ -3,8 +3,8 @@ require 'touchberrypi'
 
 keyboard = Touchberrypi::Keyboard.new
 
-keyboard.on_key_change do |key|
-	puts "key changed: #{key}"
+keyboard.on_key_change do |key, value|
+	puts "key changed: #{key} (#{value})"
 end
 
 keyboard.on_key_up do |key|
