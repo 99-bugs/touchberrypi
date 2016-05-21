@@ -15,7 +15,7 @@ module Touchberrypi
 
 			# read sensor status to reset 'change' pin
 			sensor.detection_status
-			sensor.key_status
+			@previous_status = sensor.key_status
 
 			this = self
 
@@ -27,13 +27,28 @@ module Touchberrypi
 			end
 		end
 
-		def on_change &block
-			@block = block	
+		def on_key_change &block
+			@on_key_change_block = block	
+		end
+
+		def on_key_up &block
+			@on_key_up_block = block
+		end
+
+		def on_key_down &block
+			@on_key_down_block = block
 		end
 
 		def call_block status
-			puts @block.inspect
-			@block.call status unless @block.nil?
+			status.length.times do |i|
+				if status[i] != @previous_status[i]
+					key = KEY_MAP[i]
+					@on_key_up_block.call key if status[i] == "released" unless @on_key_up_block.nil?
+					@on_key_down_block.call key if status[i] == "pressed" unless @on_key_down_block.nil?
+					@on_key_change_block.call key unless @on_key_change_block.nil?
+				end
+			end
+			@previous_status = status
 		end
 
 	end
