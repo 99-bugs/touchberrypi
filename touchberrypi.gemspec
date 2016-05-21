@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sille Van Landschoot"]
   spec.email         = ["info@sillevl.be"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Ruby library for using the Touchberry Pi shield}
+  spec.description   = %q{Ruby library for using and controlling the Touchberry Pi shield}
+  spec.homepage      = "https://github.com/99-bugs/touchberrypi"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
