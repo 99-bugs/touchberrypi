@@ -1,18 +1,13 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'touchberrypi'
 
-keyboard = Touchberrypi::Keyboard.new
+i2c = I2C.create '/dev/i2c-1'
 
-keyboard.on_key_change do |key, value|
-	puts "key changed: #{key} (#{value})"
-end
+keyboard = Touchberrypi::Keyboard.new i2c
+leds = Touchberrypi::Leds.new i2c
 
-keyboard.on_key_up do |key|
-	puts "key up: #{key}"
-end
-
-keyboard.on_key_down do |key|
-	puts "key down: #{key}"
+keyboard.on_key_change do |status|
+	puts "key changed #{status}"
 end
 
 loop do
