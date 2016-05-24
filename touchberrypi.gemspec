@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "~> 5.0"
 
   spec.add_dependency "pi_piper"
-  spec.add_dependency "qt1070" "0.1.2"
-  spec.add_dependency "tlc59116", "0.1.2"
+  spec.add_dependency "qt1070", "0.1.2"
+  spec.add_dependency "tlc59116", "0.1.3"
   spec.add_dependency "color"
 end

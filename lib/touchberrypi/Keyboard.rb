@@ -10,8 +10,8 @@ module Touchberrypi
 
 		KEY_MAP = ["LEFT","RIGHT","UP","DOWN","B","A","X"] 
 
-		def initialize
-			sensor = Qt1070.new "/dev/i2c-1"
+		def initialize i2c
+			sensor = Qt1070.new i2c
 
 			# read sensor status to reset 'change' pin
 			sensor.detection_status
