@@ -6,6 +6,12 @@ TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
+You need to have `ruby-dev` installed on the system:
+
+```
+sudo apt-get install ruby-dev
+```
+
 Add this line to your application's Gemfile:
 
 ```ruby
